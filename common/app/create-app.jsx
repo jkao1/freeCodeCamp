@@ -3,6 +3,7 @@ import createDebugger from 'debug';
 import { compose, createStore, applyMiddleware } from 'redux';
 import { selectLocationState, connectRoutes } from 'redux-first-router';
 import { combineReducers } from 'berkeleys-redux-utils';
+import logger from 'redux-logger'
 
 import { createEpic } from 'redux-epic';
 import appReducer from './reducer.js';
@@ -66,6 +67,7 @@ export default function createApp({
       routesMiddleware,
       panesMiddleware,
       epicMiddleware,
+      logger,
       ...sideMiddlewares
     ),
     // enhancers must come after middlewares
